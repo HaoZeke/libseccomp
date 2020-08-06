@@ -390,7 +390,7 @@ int sys_notify_alloc(struct seccomp_notif **req,
 		return -EOPNOTSUPP;
 
 	if (sizes.seccomp_notif == 0 && sizes.seccomp_notif_resp == 0) {
-		rc = syscall(__NR_seccomp, SECCOMP_GET_NOTIF_SIZES, 0, &sizes);
+		rc = syscall(_nr_seccomp, SECCOMP_GET_NOTIF_SIZES, 0, &sizes);
 		if (rc < 0)
 			return -ECANCELED;
 	}
